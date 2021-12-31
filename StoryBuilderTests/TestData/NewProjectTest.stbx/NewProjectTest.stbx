@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StoryBuilder Version="2.0">
+  <StoryElements>
+    <Overview UUID="4E5653A3-BD0C-4586-8448-54DF6AE1AB83" Name="Working Title" DateCreated="" DateModified="" Author="Terry Cox" StoryType="" StoryGenre="" ViewPoint="" ViewpointCharacter="" Voice="" LiteraryDevice="" Tense="" Style="" Tone="" StoryIdea="" Concept="" StoryProblem="" StyleNotes="" ToneNotes="" Notes="" />
+    <TrashCan UUID="C42DEE80-1A25-4E06-A2A5-773C1378B360" Name="Deleted Story Elements" />
+    <Section UUID="D08BF3F6-CA38-48B9-AE63-E96E4C794AC9" Name="Narrative View" Notes="" />
+  </StoryElements>
+  <Explorer>
+    <StoryNode UUID="4E5653A3-BD0C-4586-8448-54DF6AE1AB83" Type="StoryOverview" Name="Working Title" IsExpanded="True" IsSelected="False" IsRoot="True" />
+    <StoryNode UUID="C42DEE80-1A25-4E06-A2A5-773C1378B360" Type="TrashCan" Name="Deleted Story Elements" IsExpanded="False" IsSelected="False" IsRoot="True" />
+  </Explorer>
+  <Narrator>
+    <StoryNode UUID="D08BF3F6-CA38-48B9-AE63-E96E4C794AC9" Type="Section" Name="Narrative View" IsExpanded="False" IsSelected="False" IsRoot="True" />
+    <StoryNode UUID="C42DEE80-1A25-4E06-A2A5-773C1378B360" Type="TrashCan" Name="Deleted Story Elements" IsExpanded="False" IsSelected="False" IsRoot="True" />
+  </Narrator>
+  <Relationships />
+  <Settings />
+</StoryBuilder>
