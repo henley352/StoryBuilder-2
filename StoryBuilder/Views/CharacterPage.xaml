@@ -6,7 +6,7 @@
     xmlns:local="using:StoryBuilder.Views"
     xmlns:usercontrols="using:StoryBuilder.Controls" >
 
-    <TabView Padding="5" CloseButtonOverlayMode="Always" VerticalAlignment="Stretch">
+    <TabView CloseButtonOverlayMode="Always" VerticalAlignment="Stretch" TabWidthMode="SizeToContent" TabCloseRequested="CloseTab">
         <TabView.TabItems>
             <TabViewItem Header="Basic Info">
                 <Grid Margin="5" VerticalAlignment="Stretch">
@@ -145,7 +145,70 @@
 
                     <usercontrols:RichEditBoxExtended Header="Psych Notes" CornerRadius="10" Grid.ColumnSpan="4" Margin="20,10,20,10" Grid.Row="3" RtfText="{x:Bind CharVm.PsychNotes, Mode=TwoWay}" AcceptsReturn="True" IsSpellCheckEnabled="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
                 </Grid>
-                
+            </TabViewItem>
+
+            <TabViewItem Header="Internal Traits">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <editors:SfComboBox Header="Adventureousness" Grid.Column="0" Grid.Row="0" IsEditable="True" Margin="5,5,10,5" MinWidth="200" ItemsSource="{x:Bind CharVm.AdventurousnessList}" SelectedItem="{x:Bind CharVm.Adventurousness, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Confidence" Grid.Column="0" Grid.Row="1" IsEditable="True" Margin="5,5,10,5" MinWidth="200" ItemsSource="{x:Bind CharVm.ConfidenceList}" SelectedItem="{x:Bind CharVm.Confidence, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Creativity" Grid.Column="0" Grid.Row="2" IsEditable="True" Margin="5,5,10,5" MinWidth="200" ItemsSource="{x:Bind CharVm.CreativityList}" SelectedItem="{x:Bind CharVm.Creativity, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Enthusiasm" Grid.Column="0" Grid.Row="3" IsEditable="True" Margin="5,5,10,5" MinWidth="200" ItemsSource="{x:Bind CharVm.EnthusiasmList}" SelectedItem="{x:Bind CharVm.Enthusiasm, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Sensitivity" Grid.Column="0" Grid.Row="4" IsEditable="True" Margin="5,5,10,5" MinWidth="200" ItemsSource="{x:Bind CharVm.SensitivityList}" SelectedItem="{x:Bind CharVm.Sensitivity, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Sociability" Grid.Column="0" Grid.Row="5" IsEditable="True" Margin="5,5,10,5" MinWidth="200" ItemsSource="{x:Bind CharVm.SociabilityList}" SelectedItem="{x:Bind CharVm.Sociability, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Aggression" Grid.Column="2" Grid.Row="0" IsEditable="True" Margin="10,5,5,5" MinWidth="200" ItemsSource="{x:Bind CharVm.AggressionList}" SelectedItem="{x:Bind CharVm.Aggression, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Conscientiousness" Grid.Column="2" Grid.Row="1" IsEditable="True" Margin="10,5,5,5" MinWidth="200" ItemsSource="{x:Bind CharVm.ConscientiousnessList}" SelectedItem="{x:Bind CharVm.Conscientiousness, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Dominance" Grid.Column="2" Grid.Row="2" IsEditable="True"  Margin="10,5,5,5" MinWidth="200" ItemsSource="{x:Bind CharVm.DominanceList}" SelectedItem="{x:Bind CharVm.Dominance, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Self Assurance" Grid.Column="2" Grid.Row="3" IsEditable="True" Margin="10,5,5,5" MinWidth="200" ItemsSource="{x:Bind CharVm.AssuranceList}" SelectedItem="{x:Bind CharVm.Assurance, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Shrewdness" Grid.Column="2" Grid.Row="4" IsEditable="True" Margin="10,5,5,5" MinWidth="200" ItemsSource="{x:Bind CharVm.ShrewdnessList}" SelectedItem="{x:Bind CharVm.Shrewdness, Mode=TwoWay}" />
+                    <editors:SfComboBox Header="Stability" Grid.Column="2" Grid.Row="5" IsEditable="True" Margin="10,5,5,5" MinWidth="200" ItemsSource="{x:Bind CharVm.StabilityList}" SelectedItem="{x:Bind CharVm.Stability, Mode=TwoWay}" />
+                </Grid>
+            </TabViewItem>
+
+            <TabViewItem Header="Outer Traits">
+                <Grid Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView Header="Traits" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" MinWidth="300" MinHeight="150" VerticalAlignment="Stretch" ItemsSource="{x:Bind CharVm.CharacterTraits, Mode=TwoWay}" SelectedIndex="{x:Bind CharVm.ExistingTraitIndex, Mode=OneWay}" />
+
+                    <Button Content="Open Trait Builder" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50,10,10,0" Command="{x:Bind CharVm.TraitCommand, Mode=OneWay}" />
+                    <TextBox Header="Other Trait:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" MinWidth="300" Text="{x:Bind CharVm.NewTrait, Mode=TwoWay}" />
+                    <Button Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" FontFamily="Segoe MDL2 Assets" Content="&#xE710;"  Command="{x:Bind CharVm.AddTraitCommand, Mode=OneWay}" >
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="Add Trait" />
+                        </ToolTipService.ToolTip>
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="3" Margin="5,0,100,0" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Bottom" Content="&#xE738;" Command="{x:Bind CharVm.RemoveTraitCommand, Mode=OneWay}">
+                        <ToolTipService.ToolTip>
+                            <ToolTip Content="Remove Trait" />
+                        </ToolTipService.ToolTip>
+                    </Button>
+                </Grid>
+            </TabViewItem>
+
+            <TabViewItem Header="Notes">
+                <usercontrols:RichEditBoxExtended Header="Notes" RtfText="{x:Bind CharVm.Notes, Mode=TwoWay}" Margin="25" AcceptsReturn="True" IsSpellCheckEnabled="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
             </TabViewItem>
             
         </TabView.TabItems>
